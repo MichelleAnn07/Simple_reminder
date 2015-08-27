@@ -7,7 +7,7 @@ class sender extends CI_Controller{
 	}
 	
 	public function index(){
-		$config = email_config();
+		$config = $this->email_config();
 		$this->load->library('email', $config);
 		
 		
