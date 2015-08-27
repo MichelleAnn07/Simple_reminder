@@ -1,0 +1,188 @@
+.left-text, .right-text {
+	margin-left: 7%;
+	margin-right: 5%;
+}
+
+.dual {
+	z-index: -9999;
+}
+
+#login-signup {
+	width: 50%; 
+	max-height: 100%; 
+	height: 100%; 
+	overflow: hidden; 
+	margin-left: 50%; 
+	position: absolute;
+  	-webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+          transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.toplam { 
+	width: 200%; 
+	height: 100%; 
+	position: relative; 
+	left: 0;   
+	left: -100%;
+  	-webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+          transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+#moveright, #moveleft {
+	font-weight: 300;
+}
+
+.move-left {
+	margin-left: 0 !important;
+}
+
+.move-left .toplam {
+	margin-left: 100% !important;
+}
+
+.move-right {
+	margin-left: 50% !important;
+}
+
+.move-right .toplam {
+	margin-left: 0 !important;
+}
+
+.login-fields, .signup-fields {
+	width: 50%;
+	margin: auto;
+}
+
+/*LOGIN-FIELDS*/
+
+/* label color */
+.login-fields label {
+	color: #fff;
+}
+/* label focus color */
+.login-fields input[type=email]:focus + label {
+	color: #4dd0e1;
+}
+/* label focus color */
+.login-fields input[type=password]:focus + label {
+	color: #4dd0e1;
+}
+/* label underline focus color */
+.login-fields input[type=email]:focus {
+	border-bottom: 1px solid #4dd0e1;
+	box-shadow: 0 1px 0 0 #4dd0e1;
+}
+.login-fields input[type=email] {
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 1px 0 0 #fff;
+}
+/* label underline focus color */
+.login-fields input[type=password]:focus {
+	border-bottom: 1px solid #4dd0e1;
+	box-shadow: 0 1px 0 0 #4dd0e1;
+}
+.login-fields input[type=password] {
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 1px 0 0 #fff;
+}
+/* valid color */
+.login-fields input[type=email].valid {
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 1px 0 0 #fff;
+}
+/* valid color */
+.login-fields input[type=password].valid {
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 1px 0 0 #fff;
+}
+/* invalid color */
+.login-fields input[type=email].invalid {
+	border-bottom: 1px solid #F44336;
+	box-shadow: 0 1px 0 0 #F44336;
+}
+/* invalid color */
+.login-fields input[type=password].invalid {
+	border-bottom: 1px solid #F44336;
+	box-shadow: 0 1px 0 0 #F44336;
+}
+
+.login-button {
+	background: #00BCD4;
+}
+
+.login-button:hover {
+	background: #00BCD4;
+}
+
+.login-button:focus {
+	background: #00BCD4;
+}
+
+/*SIGNUP-FIELDS*/
+
+/* label color */
+.signup-fields label {
+	color: #fff;
+}
+/* label focus color */
+.signup-fields input[type=email]:focus + label {
+	color: #ba68c8;
+}
+/* label focus color */
+.signup-fields input[type=password]:focus + label {
+	color: #ba68c8;
+}
+/* label underline focus color */
+.signup-fields input[type=email]:focus {
+	border-bottom: 1px solid #ba68c8;
+	box-shadow: 0 1px 0 0 #ba68c8;
+}
+.signup-fields input[type=email] {
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 1px 0 0 #fff;
+}
+/* label underline focus color */
+.signup-fields input[type=password]:focus {
+	border-bottom: 1px solid #ba68c8;
+	box-shadow: 0 1px 0 0 #ba68c8;
+}
+.signup-fields input[type=password] {
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 1px 0 0 #fff;
+}
+/* valid color */
+.signup-fields input[type=email].valid {
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 1px 0 0 #fff;
+}
+/* valid color */
+.signup-fields input[type=password].valid {
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 1px 0 0 #fff;
+}
+/* invalid color */
+.signup-fields input[type=email].invalid {
+	border-bottom: 1px solid #F44336;
+	box-shadow: 0 1px 0 0 #F44336;
+}
+/* invalid color */
+.signup-fields input[type=password].invalid {
+	border-bottom: 1px solid #F44336;
+	box-shadow: 0 1px 0 0 #F44336;
+}
+
+.signup-button {
+	background: #9C27B0;
+}
+
+.signup-button:hover {
+	background: #9C27B0;
+}
+
+.signup-button:focus {
+	background: #9C27B0;
+}
+
+.sign-up-now, .login-now {
+	font-weight: 500;
+}
