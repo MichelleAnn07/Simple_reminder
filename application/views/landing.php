@@ -63,20 +63,38 @@
                <h4 class="white-text">Sign-Up</h4>
                <div class="row">
                   <div class="input-field signup-fields">
-                     <input id="email" type="email" class="validate white-text">
-                     <label for="email">E-Mail</label>
+                     <input id="username" type="text" class="validate white-text " name="username">
+                     <label for="username">Username</label>
                   </div>
                </div>
                <div class="row">
                   <div class="input-field signup-fields">
-                     <input id="password" type="password" class="validate white-text">
+                     <input id="password" type="password" class="validate white-text" name="password">
                      <label for="password">Password</label>
                   </div>
                </div>
                <div class="row">
                   <div class="input-field signup-fields">
-                     <input id="password-again" type="password" class="validate white-text">
-                     <label for="password-again">Re-Type Password</label>
+                     <input id="repassword" type="password" class="validate white-text" name="repassword">
+                     <label for="repassword">Re-Type Password</label>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="input-field signup-fields">
+                     <input id="firstname" type="text" class="validate white-text " name="firstname">
+                     <label for="firstname">First Name</label>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="input-field signup-fields">
+                     <input id="lastname" type="text" class="validate white-text " name="lastname">
+                     <label for="lastname">Last Name</label>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="input-field signup-fields">
+                     <input id="email" type="email" class="validate white-text" name="email">
+                     <label for="email">E-Mail</label>
                   </div>
                </div>
                <button class="btn waves-effect waves-light signup-button" type="submit" name="action">Go!
@@ -91,14 +109,14 @@
                <h4 class="white-text">Login</h4>
                <div class="row">
                   <div class="input-field login-fields">
-                     <input id="email" type="email" class="validate white-text ">
-                     <label for="email">E-Mail</label>
+                     <input id="username-log" type="text" class="validate white-text " name="username_log">
+                     <label for="username-log">Username</label>
                   </div>
                </div>
                <div class="row">
                   <div class="input-field login-fields">
-                     <input id="password" type="password" class="validate white-text">
-                     <label for="password">Password</label>
+                     <input id="password-log" type="password" class="validate white-text">
+                     <label for="password-log">Password</label>
                   </div>
                </div>
                <button class="btn waves-effect waves-light login-button" type="submit" name="action">Go!

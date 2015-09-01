@@ -10,8 +10,9 @@ class Reminder_model extends CI_Model{
 		$this->db->from('user');
 		$this->db->where($where);
 		$query = $this->db->get();
+		// echo $query->num_rows();
 		if($query->num_rows() > 0){
-			var_dump($query->result_array);
+			var_dump($query->result_array());
 		}
 	}
 	//Gets the username
