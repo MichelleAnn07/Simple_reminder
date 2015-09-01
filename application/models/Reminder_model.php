@@ -4,15 +4,14 @@ class Reminder_model extends CI_Model{
 		$this->load->database();
 	}
 	//Checks if Username and Password exist in Database
-	public function check_login($username = 'MichelleAnn07', $password = '12345'){
-		$where = array('username' => 'MichelleAnn07', 'password' => '12345');
+	public function check_login($username = null, $password = null){
+		$where = array('username' => $username, 'password' => $password);
 		$this->db->select('*');
 		$this->db->from('user');
 		$this->db->where($where);
 		$query = $this->db->get();
-		// echo $query->num_rows();
 		if($query->num_rows() > 0){
-			var_dump($query->result_array());
+			return $query->result_array();
 		}
 	}
 	//Gets the username
@@ -26,6 +25,18 @@ class Reminder_model extends CI_Model{
 			return $query->result_array;
 		}
 	}
+	
+	public function get_email($email = null){
+		$where = array('email' => $email);
+		$this->db->select('email');
+		$this->db->from('user');
+		$this->db->where($where);
+		$query = $this->db->get();
+		if($query->num_rows() > 0){
+			return $query->result_array;
+		}
+	}
+	
 	//Gets Lastname and Firstname of user
 	public function get_name($username = null){
 		$where = array('username' => $username);

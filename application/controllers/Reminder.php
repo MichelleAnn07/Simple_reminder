@@ -7,10 +7,7 @@ class Reminder extends CI_Controller{
 	
 	public function index(){
 		$this->load->helper('url');
-		//$this->load->view('landing');
-		//$this->sign_in();
-		//var_dump($this->Reminder_model->check_login());
-		$this->Reminder_model->check_login();
+		$this->load->view('landing');
 	}
 	
 	public function log_in(){
@@ -19,11 +16,17 @@ class Reminder extends CI_Controller{
 		$password_log = $this->input->post('password_log');
 		$data['title'] = 'Log in';
 		$data['username_log_err'] = $this->validate_input($username_log, 'any_field');
-		$data['password_log_err'] = $this->validate_input($password_log, 'anny_field');
+		$data['password_log_err'] = $this->validate_input($password_log, 'any_field');
 		$data['username_log'] = $this->filter_input($username_log);
 		$data['password_log'] = $this->filter_input($password_log);
+		$data['log_in_err'] = '';
 		if(empty($data['username_log_err']) && empty($data['password_log_err'])){
-			$result = $this->Reminder_model->check_login($data['username_log'], $data['password_log']);
+			if(is_null($this->Reminder_model->check_login($data['username_log'], $data['password_log']))){
+				$data['log_in_err'] = 'Username or Password is incorrect.';
+				$this->load->view('landing',$data);
+			}
+			else
+				echo 'Log in Successful!';
 		}
 	}
 	
@@ -60,6 +63,12 @@ class Reminder extends CI_Controller{
 	
 	public function validate_input($string, $type){
 		switch($type){
+			case 'username':
+				if(empty($string))
+					return 'Field is required.';
+				if($this->Reminder_model->get_username($string) == null)
+					return 'Username exists.';
+				break;
 			case 'name': 
 				if(empty($string))
 					return 'Field is required.';
@@ -69,8 +78,10 @@ class Reminder extends CI_Controller{
 			case 'email':
 				if(empty($string))
 					return 'Field is required.';
-				if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+				if(!filter_var($$string, FILTER_VALIDATE_EMAIL))
 					return 'Email is invalid.';
+				if($this->Reminder_model->get_email($string) == null)
+					return 'Email exists.';
 				break;
 			case 'any_field':
 				if(empty($string))
