@@ -3,54 +3,14 @@
 	margin-right: 5%;
 }
 
-.dual {
-	z-index: -9999;
-}
-
-#login-signup {
-	width: 50%; 
-	max-height: 100%; 
-	height: 100%; 
-	overflow: hidden; 
-	margin-left: 50%; 
-	position: absolute;
-  	-webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-          transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.toplam { 
-	width: 200%; 
-	height: 100%; 
-	position: relative; 
-	left: 0;   
-	left: -100%;
-  	-webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-          transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-#moveright, #moveleft {
-	font-weight: 300;
-}
-
-.move-left {
-	margin-left: 0 !important;
-}
-
-.move-left .toplam {
-	margin-left: 100% !important;
-}
-
-.move-right {
-	margin-left: 50% !important;
-}
-
-.move-right .toplam {
-	margin-left: 0 !important;
-}
-
 .login-fields, .signup-fields {
 	width: 50%;
 	margin: auto;
+}
+
+.center-text {
+	display: block;
+	text-align: center;
 }
 
 /*LOGIN-FIELDS*/

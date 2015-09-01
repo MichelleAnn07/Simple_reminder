@@ -32,17 +32,27 @@
     </nav> -->
    <div class="dual"> <!--menu-->
       <div class="left"> <!--menu__brand-->
-         <div class="left-text flow-text">
+         <div class="left-text flow-text hide-on-med-and-down">
             <h1 class="left-align white-text">A Simple Reminder System</h1>
             <br />
             <span>Developed by the Computer Science Students of Technological University of the Philippines Manila</span>
          </div>
+         <div class="center-text flow-text hide-on-large-only">
+            <h3 class="center-align white-text hide-on-small-only">A Simple Reminder System</h3>
+            <h5 class="center-align white-text hide-on-med-only">A Simple Reminder System</h5>
+            <span class="center-text">Developed by the Computer Science Students of Technological University of the Philippines Manila</span>
+         </div>
       </div>
       <div class="right"> <!--menu__list-->
-         <div class="right-text flow-text">
+         <div class="right-text flow-text hide-on-med-and-down">
             <h1 class="left-align white-text">Signing Up is Easy!</h1>
             <br />
             <span>Register an E-Mail Address to Get Started</span>
+         </div>
+         <div class="center-text flow-text hide-on-large-only">
+            <h3 class="center-align white-text hide-on-small-only">Signing Up is Easy!</h3>
+            <h5 class="center-align white-text hide-on-med-only">Signing Up is Easy!</h5>
+            <span class="center-text">Register an E-Mail Address to Get Started</span>
          </div>
       </div>
    </div>

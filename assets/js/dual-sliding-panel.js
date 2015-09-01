@@ -3,11 +3,15 @@
     $('#moveleft').click(function() {
         $('#login-signup').addClass('move-left');
         $('#login-signup').removeClass('move-right');
+        $('.dual').addClass('mobile-left');
+        $('.dual').removeClass('mobile-right');
     });
     
     $('#moveright').click(function() {
         $('#login-signup').addClass('move-right');
         $('#login-signup').removeClass('move-left');
+        $('.dual').addClass('mobile-right');
+        $('.dual').removeClass('mobile-left');
     });
   
   var Menu = (function() {
@@ -27,7 +31,7 @@
     var toggleMenu = function() {
       if (!active) {
         menu.classList.add('menu--active');
-        menuList.classList.add('menu__list--active');
+        menuList.classList.add('login--active');
         brand.classList.add('menu__brand--active');
         right.classList.add('menu__list--active');
         left.classList.add('menu__brand--active');
