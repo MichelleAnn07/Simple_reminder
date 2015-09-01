@@ -12,8 +12,19 @@ class Reminder extends CI_Controller{
 	}
 	
 	public function sign_in(){
-		$data('title') = 'Sign in';
-		
+		$username = 
+		$password = 
+		$repassword = 
+		$firstname =
+		$lastname = 
+		$email =
+		$data['title'] = 'Sign in';
+		$data['username_err'] = validate_input($username, 'any_field');
+		$data['password_err'] = validate_input($password, 'any_field');
+		$data['repassword_err'] = confirm_password($password, $repassword);
+		$data['firstname_err'] = validate_input($firstname,'name');
+		$data['lastname_err'] = validate_input($lastname, 'name');
+		$data['email_err'] = validate_input($email, 'email');
 	}
 	
 	public function validate_input($string, $type){
@@ -30,7 +41,16 @@ class Reminder extends CI_Controller{
 				if(!filter_var($email, FILTER_VALIDATE_EMAIL))
 					return 'Email is invalid.';
 				break;
+			case 'any_field':
+				if(empty($string))
+					return 'Field is required.';
+				break;
 		}
+	}
+	
+	public function confirm_password($password, $repassword){
+		if(strcmp($password, $repassword) !== 0)
+			return 'Password does not match.';
 	}
 	
 	public function filter_input($string){
