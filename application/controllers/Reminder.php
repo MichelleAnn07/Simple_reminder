@@ -7,10 +7,13 @@ class Reminder extends CI_Controller{
 	
 	public function index(){
 		$this->load->helper('url');
-		$this->load->view('landing');
+		$data['title'] = 'Log in';
+		$data['username_log_err'] = $data['password_log_err'] = $data['username_log'] = $data['password_log'] = $data['log_in_err'] = '';
+		$this->load->view('landing', $data);
 	}
 	
 	public function log_in(){
+		$this->load->helper('url');
 		$this->load->library('session');
 		$username_log = $this->input->post('username_log');
 		$password_log = $this->input->post('password_log');
@@ -20,7 +23,7 @@ class Reminder extends CI_Controller{
 		$data['username_log'] = $this->filter_input($username_log);
 		$data['password_log'] = $this->filter_input($password_log);
 		$data['log_in_err'] = '';
-		if(empty($data['username_log_err']) && empty($data['password_log_err'])){
+		if((empty($data['username_log_err'])) && (empty($data['password_log_err']))){
 			if(is_null($this->Reminder_model->check_login($data['username_log'], $data['password_log']))){
 				$data['log_in_err'] = 'Username or Password is incorrect.';
 				$this->load->view('landing',$data);
@@ -28,9 +31,12 @@ class Reminder extends CI_Controller{
 			else
 				echo 'Log in Successful!';
 		}
+		else
+			echo 'EMPTY';
 	}
 	
-	public function sign_in(){
+	public function sign_up(){
+		$this->load->helper('url');
 		$this->load->library('session');
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
@@ -38,7 +44,7 @@ class Reminder extends CI_Controller{
 		$firstname = $this->input->post('firstname');
 		$lastname = $this->input->post('lastname');
 		$email = $this->input->post('email');
-		$data['title'] = 'Sign in';
+		$data['title'] = 'Sign up';
 		$data['username_err'] = $this->validate_input($username, 'any_field');
 		$data['password_err'] = $this->validate_input($password, 'any_field');
 		$data['repassword_err'] = $this->confirm_password($password, $repassword);
@@ -78,7 +84,7 @@ class Reminder extends CI_Controller{
 			case 'email':
 				if(empty($string))
 					return 'Field is required.';
-				if(!filter_var($$string, FILTER_VALIDATE_EMAIL))
+				if(!filter_var($string, FILTER_VALIDATE_EMAIL))
 					return 'Email is invalid.';
 				if($this->Reminder_model->get_email($string) == null)
 					return 'Email exists.';
