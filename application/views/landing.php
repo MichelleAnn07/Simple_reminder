@@ -67,7 +67,7 @@
                   ?>
                </div>
                <br />
-               <form method="post" action="Reminder/sign_up">
+               <form method="post" action="<?php echo base_url(); ?>index.php/Reminder/sign_up">
                   <div class="row">
                      <div class="input-field signup-fields">
                         <input id="username" type="text" class="validate white-text " name="username">
@@ -121,7 +121,7 @@
                   ?>
                </div>
                <br />
-               <form method="POST" action="Reminder/log_in">
+               <form method="POST" action="<?php echo base_url(); ?>index.php/Reminder/log_in/">
                  <div class="row">
                     <div class="input-field login-fields">
                        <input id="username-log" type="text" class="validate white-text" name="username_log">
