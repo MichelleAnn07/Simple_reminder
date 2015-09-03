@@ -5,12 +5,12 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   		
-  		<title>home</title>
+  		<title>Dashboard</title>
 
   		<!-- CSS  -->
-      <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <link href="css/dual-sliding-panel.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <link href="<?php echo base_url();?>assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <link href="<?php echo base_url();?>assets/css/dual-sliding-panel.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <link href="<?php echo base_url();?>assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 <!--
       <style>
       .view{background: #0097A7;}
@@ -52,11 +52,11 @@
     </li>
    </ul>
 
-    <!-- Javascript  -->
-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/dual-sliding-panel.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
+<!-- Javascript  -->
+    <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>assets/js/dual-sliding-panel.js"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>assets/js/script.js"></script>
   </body>
 
 </html>
