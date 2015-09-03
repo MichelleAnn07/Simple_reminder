@@ -6191,18 +6191,18 @@ label {
    Text Inputs + Textarea
 ****************************/
 ::-webkit-input-placeholder {
-  color: #d1d1d1; }
+  color: #F44336; }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: #d1d1d1; }
+  color: #F44336; }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #d1d1d1; }
+  color: #F44336; }
 
 :-ms-input-placeholder {
-  color: #d1d1d1; }
+  color: #F44336; }
 
 input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
   background-color: transparent;
@@ -6250,6 +6250,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
     position: absolute;
     top: 65px;
     opacity: 0;
+    width: 103px;
     transition: .2s opacity ease-out, .2s color ease-out; }
 
 .input-field {
