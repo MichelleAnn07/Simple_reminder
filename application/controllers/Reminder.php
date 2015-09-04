@@ -29,9 +29,9 @@ class Reminder extends CI_Controller{
 				$this->load->view('landing',$data);
 			}
 			else
-				echo 'Log in Successful!';
+				// Go to dashboard
+				// Login successfully
 				$this->session->set_userdata('username', $data['username_log']);
-				
 				$this->load->view('dashboard_proto1');
 		}
 		else
@@ -61,11 +61,15 @@ class Reminder extends CI_Controller{
 		$data['lastname'] = $this->filter_input($lastname);
 		$data['email'] = $this->filter_input($email);
 		if(empty($data['username_err']) && empty($data['password_err']) && empty($data['repassword_err']) && empty($data['firstname_err']) && empty($data['lastname_err']) && $data['email_err']){
-			echo 'Data Accepted!';
+			// Insert data into database
 			$this->Reminder_model->insert_user($data['username'], $data['password'], $data['firstname'], $data['lastname'], $data['email']);
+
+			// Go to dashboard
+			// Login successfully / Welcome new user modal
 			$this->session->set_userdata('username', $data['username']);
-			//go to dashboard
+			$this->load->view('dashboard_proto1');
 		}
+
 		else{
 			$this->load->view('landing', $data);
 		}
@@ -110,5 +114,12 @@ class Reminder extends CI_Controller{
 		$string = htmlspecialchars($string);
 		return $string;
 	}
+
+
+
+
+
+	// Dashboard Functions
+
 }
 ?>
