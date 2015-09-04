@@ -1,62 +1,136 @@
 <!DOCTYPE html>
+
 <html>
 
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  		
-  		<title>Dashboard</title>
 
-  		<!-- CSS  -->
-      <link href="<?php echo base_url();?>assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <link href="<?php echo base_url();?>assets/css/dual-sliding-panel.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <link href="<?php echo base_url();?>assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-<!--
-      <style>
-      .view{background: #0097A7;}
-      .add{background: #00BCD4;}
-      .add, .view{
-          float: left;
-          width: 50%;
-          height: 100vh;
-          overflow: hidden;
-      }
-      #accordion {
-      list-style: none;
-      }
-
-      #accordion li {
-      float: left;
-      width: 50%;
-      height: 100vh;
-      overflow: hidden;
-      }
-
-      #accordion li.active {
-      width: 95%;
-      }
-      </style>
--->
+		<title>Simple Reminder | Home</title>
+	
+		<!--CSS-->
+		<link rel="stylesheet" type="text/css" href="css/vertical-Accordion.css">
 	</head>
 
-  <body>
+<style>
+body {
+	margin: 0;
+}
 
-   <ul class="collapsible collapsible-accordion" data-collapsible="accordion">
-    <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Add</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>View</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-   </ul>
+#container {
+	margin: 20px auto;
+	width: 980px;
+}
 
-<!-- Javascript  -->
-    <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>assets/js/dual-sliding-panel.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>assets/js/script.js"></script>
-  </body>
+#accordion {
+	list-style:none;
+	margin:30px 0;
+	padding:0;
+	height:270px;
+	width:980px;
+	margin:0 0 0 11px;
+	border:2px solid #000000;
+	overflow:hidden;
+}
+.panel {
+	float:left;
+	display:block;
+	height:270px;
+	width:44px;
+	overflow:hidden;
+	color:#666666;
+	text-decoration:none;
+	font-size:16px;
+	line-height:1.5em
+}
+.panel.active {
+	width:848px
+}
 
+.panelContent {
+	padding:15px 15px 15px 55px;
+	height:240px;
+	width:778px;
+}
+.pink {
+	width:42px;
+	height:270px;
+	float:left;
+	background:url(../images/accordionSprite.png) no-repeat 4px 85px #f980a1;
+	border-right:2px solid #ffffff;
+	cursor:pointer
+}
+.dark1 {
+	background:url(../images/accordionSprite.png) no-repeat -58px 85px #e66486
+}
+.dark2 {
+	background:url(../images/accordionSprite.png) no-repeat -117px 86px #cf4266
+}
+.dark3 {
+	background:url(../images/accordionSprite.png) no-repeat -184px 87px #b71f45
+}
+.last {
+	border:none
+}
+.p1 {
+	background:url(../images/panel1.jpg) no-repeat left top
+}
+.p2 {
+	background:url(../images/panel1.jpg) no-repeat left top
+}
+.p3 {
+	background:url(../images/panel1.jpg) no-repeat left top
+}
+.p4 {
+	background:url(../images/panel1.jpg) no-repeat left top
+}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.js"></script>
+<script>
+$(document).ready(function(){
+ 
+    activePanel = $("#accordion div.panel:first");
+    $(activePanel).addClass('active');
+ 
+    $("#accordion").delegate('.panel', 'click', function(e){
+         if( ! $(this).is('.active') ){
+			$(activePanel).animate({width: "44px"}, 300);
+			$(this).animate({width: "848px"}, 300);
+			$('#accordion .panel').removeClass('active');
+			$(this).addClass('active');
+			activePanel = this;
+		 };
+    });
+});
+</script>
+</head>
+<body>
+<div id="container">
+<div id="accordion">
+    <div class="panel">
+      <div class="pink"></div>
+      <div class="panelContent p1"> <strong>Section 1 Header</strong><br/>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In iaculis volutpat quam, non suscipit arcu accumsan at. Aliquam pellentesque.
+      </div>
+    </div>
+    <div class="panel">
+      <div class="pink dark1"></div>
+      <div class="panelContent p2"> <strong>Section 2 Header</strong><br/>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In iaculis volutpat quam, non suscipit arcu accumsan at. Aliquam pellentesque.
+      </div>
+    </div>
+    <div class="panel">
+      <div class="pink dark2"></div>
+      <div class="panelContent p3"> <strong>Section 3 Header</strong><br/>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In iaculis volutpat quam, non suscipit arcu accumsan at. Aliquam pellentesque.
+      </div>
+    </div>
+    <div class="panel">
+      <div class="pink dark3"></div>
+      <div class="panelContent p4"> <strong>Section 4 Header</strong><br/>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In iaculis volutpat quam, non suscipit arcu accumsan at. Aliquam pellentesque.
+      </div>
+    </div>
+</div>
+</div>
+</body>
+		<!--JavaScript-->
 </html>
