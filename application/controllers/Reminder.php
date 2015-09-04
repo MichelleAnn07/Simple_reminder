@@ -97,6 +97,13 @@ class Reminder extends CI_Controller{
 				if($this->Reminder_model->get_email($string) == null)
 					return 'Email exists.';
 				break;
+
+			case 'date':
+				break;
+
+			case 'time':
+				break;
+
 			case 'any_field':
 				if(empty($string))
 					return 'Field is required.';
@@ -120,6 +127,20 @@ class Reminder extends CI_Controller{
 
 
 	// Dashboard Functions
+	public function send_reminder() {
+		$this->load->helper('url');
+		$this->load->library('session');
+		//$username_log = $this->input->post('username_log');
+		//$password_log = $this->input->post('password_log');
+		$data['title'] = 'Send Reminder';
+		$data['reminder_title_err'] = $this->validate_input($username_log, 'any_field');
+		$data['reminder_content_err'] = $this->validate_input($password_log, 'any_field');
 
+		// Validating these values are senseless because we used widgets in entering these values
+		//$data['reminder_date_err'] = $this->validate_input($username_log, 'date');
+		//$data['reminder_time_err'] = $this->validate_input($password_log, 'time');
+		
+		$data['log_in_err'] = '';
+	}
 }
 ?>
