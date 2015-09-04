@@ -31,7 +31,8 @@ class Reminder extends CI_Controller{
 			else
 				echo 'Log in Successful!';
 				$this->session->set_userdata('username', $data['username_log']);
-				//go to dashboard
+				
+				$this->load->view('dashboard_proto1');
 		}
 		else
 			$this->load->view('landing',$data);
