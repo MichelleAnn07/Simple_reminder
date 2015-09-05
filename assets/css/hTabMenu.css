@@ -1,6 +1,8 @@
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(255,255,255,0);
+  margin: 0px;
+  padding: 0px;
 }
 body {
   line-height: 1.5;
@@ -16,8 +18,8 @@ a {
 }
 ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
 }
 .nav {
   will-change: transform;
@@ -251,18 +253,6 @@ ul {
 }
 .color2 {
   background: #e74c3c;
-}
-.color3 {
-  background: #3498db;
-}
-.color4 {
-  background: #f4d03f;
-}
-.color5 {
-  background: #9b59b6;
-}
-.color6 {
-  background: #bdc3c7;
 }
 .logo {
   position: fixed;
