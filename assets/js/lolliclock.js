@@ -10,7 +10,7 @@
 
   // Default options
   LolliClock.DEFAULTS = {
-    startTime: '',	      // default time, '' or 'now' or 'H:MM AM'
+    startTime: 'now',	      // default time, '' or 'now' or 'H:MM AM'
     autoclose: false,    	// show Cancel/OK buttons
     vibrate: true        	// vibrate the device when dragging clock hand
   };
@@ -435,7 +435,8 @@
       var target = $(e.target);
       if (target.closest(self.popover).length === 0 &&
         target.closest(self.input).length === 0) {
-        self.done();
+        // self.done();
+        self.hide();
       }
     });
 
