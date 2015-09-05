@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<nav class="nav nav--active">
+<div class="nav nav--active">
   <ul class="nav__list">
     <li class="nav__item">
       <a href="" class="nav__link">
@@ -23,7 +23,7 @@
       </a>
     </li>
   </ul>
-</nav>
+</div>
 
 <div class="page">
   <section class="section section--active color1" data-letter="a">
