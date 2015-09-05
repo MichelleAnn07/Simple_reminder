@@ -2,7 +2,6 @@ var Nav = (function() {
   
   var
     nav     = $('.nav'),
-    burger  = $('.burger'),
     page    = $('.page'),
     section = $('.section'),
     link    = nav.find('.nav__link'),
