@@ -89,6 +89,11 @@ ul {
   color: #1a1a1a;
   margin: 0;
 }
+.nav__link {
+  margin: 0px;
+  padding: 0px;
+}
+
 @media (max-width: 850px) {
   .nav__label {
     font-size: 14px;
