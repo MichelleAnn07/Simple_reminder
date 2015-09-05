@@ -29,31 +29,31 @@
   <section class="section section--active color1" data-letter="a">
     <article class="section__wrapper">
       <div class="row">
-        <form class="col s12">
+        <form method="POST" action="<?php echo base_url(); ?>index.php/Reminder/send_reminder/" class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <input id="reminder_title" type="text" class="validate">
+              <input <?php if(!empty($reminder_title_err)) echo 'placeholder="'.$reminder_title_err.'"'; ?> id="reminder_title" type="text" class="validate white-text <?php if(!empty($reminder_title_err)) echo 'invalid'; ?>" name="reminder_title">
               <label for="reminder_title">Reminder Title</label>
             </div>
           </div>
 
           <div class="row">
             <div class="input-field col s12">
-              <textarea id="reminder_content" class="materialize-textarea"></textarea>
+              <textarea <?php if(!empty($reminder_content_err)) echo 'placeholder="'.$reminder_content_err.'"'; ?> id="reminder_content" class="validate materialize-textarea <?php if(!empty($reminder_content_err)) echo 'invalid'; ?>" name="reminder_content"></textarea>
               <label for="reminder_note">Reminder Content</label>
             </div>
           </div>
 
             <div class="row">
               <div class = "input-field col s12">
-                <input id="reminder_date" type="date" class="datepicker">
+                <input <?php if(!empty($reminder_date_err)) echo 'placeholder="'.$reminder_date_err.'"'; ?> id="reminder_date" type="date" class="validate datepicker <?php if(!empty($reminder_date_err)) echo 'invalid'; ?>" name="reminder_date">
               <label for="reminder_date">Reminder Date</label>
               </div>
             </div>
 
             <div class="row">
           <div class="input-field col s12">
-            <input id="reminder_time" type="text" class="lolliclock">
+            <input <?php if(!empty($reminder_time_err)) echo 'placeholder="'.$reminder_time_err.'"'; ?> id="reminder_time" type="text" class="validate lolliclock <?php if(!empty($reminder_time_err)) echo 'invalid'; ?>" name="reminder_time">
             <label for="reminder_time">Reminder Time</label>
           </div>
         </div>
