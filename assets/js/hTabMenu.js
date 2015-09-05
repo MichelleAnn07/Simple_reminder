@@ -1,14 +1,14 @@
 var Nav = (function() {
   
   var
-  	nav 		= $('.nav'),
-  	burger	= $('.burger'),
-    page 		= $('.page'),
+    nav     = $('.nav'),
+    burger  = $('.burger'),
+    page    = $('.page'),
     section = $('.section'),
-    link		= nav.find('.nav__link'),
-    navH		= nav.innerHeight(),
-    isOpen 	= true,
-    hasT 		= false;
+    link    = nav.find('.nav__link'),
+    navH    = nav.innerHeight(),
+    isOpen  = true,
+    hasT    = false;
   
   var toggleNav = function() {
     nav.toggleClass('nav--active');

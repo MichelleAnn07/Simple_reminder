@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<link href="<?php echo base_url();?>assets/css/hTabMenu.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <title></title>
+  <link href="<?php echo base_url();?>assets/css/hTabMenu.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
 
@@ -11,13 +11,13 @@
     <li class="nav__item">
       <a href="" class="nav__link">
         <div class="nav__thumb color1" data-letter="a"></div>
-        <p class="nav__label">About</p>
+        <p class="nav__label">Add</p>
       </a>
     </li>
     <li class="nav__item">
       <a href="" class="nav__link">
-        <div class="nav__thumb color2" data-letter="p"></div>
-        <p class="nav__label">Products</p>
+        <div class="nav__thumb color2" data-letter="v"></div>
+        <p class="nav__label">View</p>
       </a>
     </li>
   </ul>
@@ -26,20 +26,19 @@
 <div class="page">
   <section class="section section--active color1" data-letter="a">
     <article class="section__wrapper">
-      <h1 class="section__title">About us</h1>
-      <p>Use your 'left' and 'right' arrow keys to navigate.<br>Voluptatem necessitatibus aliquid cum repellat nihil praesentium tenetur vel voluptates cumque animi accusantium, deserunt, vitae est. Quas suscipit sint quidem fuga repudiandae.</p>
+      <h1 class="section__title">Add</h1>
+      <p>Add Form Here<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </article>
   </section>
-  <section class="section color2" data-letter="p">
+  <section class="section color2" data-letter="v">
     <article class="section__wrapper">
-      <h1 class="section__title">Products</h1>
-      <p>Use your 'left' and 'right' arrow keys to navigate.<br> Quos vel omnis quibusdam at inventore atque assumenda dignissimos ipsa magni perferendis, minima neque saepe reprehenderit quisquam numquam voluptas quo placeat quaerat!</p>
+      <h1 class="section__title">View</h1>
+      <p>View Page Here<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </article>
   </section>
 </div>
 
-
 </body>
-	<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/hTabMenu.js"></script>
 </html>
