@@ -8,6 +8,8 @@ class Reminder extends CI_Controller{
 	
 	public function index(){
 		$this->load->helper('url');
+		if($this->session->userdata('username') != null)
+			$this->load->view('dashboard_proto1');
 		$data['title'] = 'Log in';
 		$data['username_log_err'] = $data['password_log_err'] = $data['username_log'] = $data['password_log'] = $data['log_in_err'] = '';
 		$data['reminder_title_err'] = $data['reminder_content_err'] = $data['reminder_date_err'] = $data['reminder_time_err'] = '';
@@ -187,7 +189,7 @@ class Reminder extends CI_Controller{
 		$this->load->library('session');
 
 		if($this->session->userdata('username') == null)
-		then $this->load->view('landing')
+			$this->load->view('landing');
 
 		$username = $this->session->userdata('username');
 		$reminder_title = $this->input->post('reminder_title');
