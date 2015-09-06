@@ -56,6 +56,7 @@ class Reminder extends CI_Controller{
 	}
 		
 	public function log_out(){
+		$this->load->library('session');
 		$this->session->unset_userdata('username');
 		$this->load->view('landing');
 	}
