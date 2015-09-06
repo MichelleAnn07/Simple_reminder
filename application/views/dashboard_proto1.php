@@ -14,13 +14,13 @@
   <ul class="nav__list">
     <li class="nav__item">
       <a href="" class="nav__link">
-        <div class="nav__thumb color1" data-letter="a"></div>
-        <p class="nav__label">Add</p>
+        <div class="nav__thumb color1" data-letter="create"></div>
+        <p class="nav__label">Create</p>
       </a>
     </li>
     <li class="nav__item">
       <a href="" class="nav__link">
-        <div class="nav__thumb color2" data-letter="v"></div>
+        <div class="nav__thumb color2" data-letter="view"></div>
         <p class="nav__label">View</p>
       </a>
     </li>
@@ -28,7 +28,7 @@
 </div>
 
 <div class="page">
-  <section class="section section--active color1" data-letter="a">
+  <section class="section section--active color1">
     <article class="section__wrapper">
       <div class="row">
         <form method="POST" action="<?php echo base_url(); ?>index.php/Reminder/send_reminder/">
@@ -67,7 +67,7 @@
       </div>
     </article>
   </section>
-  <section class="section color2" data-letter="v">
+  <section class="section color2">
     <article class="section__wrapper">
       <div class="view__wrapper">
         <div class="view">

@@ -86,8 +86,9 @@ ul {
           transform: translate(-50%, -50%);
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #1a1a1a;
+  color: #FFF;
   margin: 0;
+  font-size: 2.28rem;
 }
 .nav__link {
   margin: 0px;
