@@ -19,7 +19,7 @@
 
 @media screen and (max-width: 601px) {
 
-	.login-fields, .signup-fields {
+	.login-fields, .signup-fields, .reminder-fields {
 		width: 65%;
 	}
 }
@@ -188,4 +188,93 @@
 
 .sign-up-now, .login-now {
 	font-weight: 500;
+}
+
+
+/*REMINDER-FIELDS*/
+
+/* label color */
+.reminder-fields label {
+	color: #fff;
+}
+/* label focus color */
+.reminder-fields input[type=text]:focus + label {
+	color: #4dd0e1;
+}
+
+.reminder-textarea:focus + label {
+	color: #4dd0e1 !important;
+}
+
+/* label focus color */
+.reminder-fields input[type=date]:focus + label {
+	color: #4dd0e1;
+}
+/* label underline focus color */
+.reminder-fields input[type=text]:focus {
+	border-bottom: 1px solid #4dd0e1;
+	box-shadow: 0 1px 0 0 #4dd0e1;
+}
+.reminder-fields input[type=text] {
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 1px 0 0 #fff;
+}
+
+.reminder-textarea:focus {
+	border-bottom: 1px solid #4dd0e1 !important;
+	box-shadow: 0 1px 0 0 #4dd0e1 !important;
+}
+.reminder-textarea {
+	border-bottom: 1px solid #fff !important;
+	box-shadow: 0 1px 0 0 #fff !important;
+}
+/* label underline focus color */
+.reminder-fields input[type=date]:focus {
+	border-bottom: 1px solid #4dd0e1;
+	box-shadow: 0 1px 0 0 #4dd0e1;
+}
+.reminder-fields input[type=date] {
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 1px 0 0 #fff;
+}
+/* valid color */
+.reminder-fields input[type=text].valid {
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 1px 0 0 #fff;
+}
+
+.reminder-textarea.valid {
+	border-bottom: 1px solid #fff !important;
+	box-shadow: 0 1px 0 0 #fff !important;
+}
+/* valid color */
+.reminder-fields input[type=date].valid {
+	border-bottom: 1px solid #fff;
+	box-shadow: 0 1px 0 0 #fff;
+}
+/* invalid color */
+.reminder-fields input[type=text].invalid {
+	border-bottom: 1px solid #F44336;
+	box-shadow: 0 1px 0 0 #F44336;
+}
+.reminder-textarea.invalid {
+	border-bottom: 1px solid #F44336 !important;
+	box-shadow: 0 1px 0 0 #F44336 !important;
+}
+/* invalid color */
+.reminder-fields input[type=date].invalid {
+	border-bottom: 1px solid #F44336;
+	box-shadow: 0 1px 0 0 #F44336;
+}
+
+.reminder-button {
+	background: #00BCD4;
+}
+
+.reminder-button:hover {
+	background: #00BCD4;
+}
+
+.reminder-button:focus {
+	background: #00BCD4;
 }

@@ -9,6 +9,7 @@ class Reminder extends CI_Controller{
 		$this->load->helper('url');
 		$data['title'] = 'Log in';
 		$data['username_log_err'] = $data['password_log_err'] = $data['username_log'] = $data['password_log'] = $data['log_in_err'] = '';
+		$data['reminder_title_err'] = $data['reminder_content_err'] = $data['reminder_date_err'] = $data['reminder_time_err'] = '';
 		$this->load->view('landing', $data);
 	}
 	
@@ -29,9 +30,10 @@ class Reminder extends CI_Controller{
 				$this->load->view('landing',$data);
 			}
 			else
-				echo 'Log in Successful!';
+				// Go to dashboard
+				// Login successfully
 				$this->session->set_userdata('username', $data['username_log']);
-				//go to dashboard
+				$this->load->view('dashboard_proto1');
 		}
 		else
 			$this->load->view('landing',$data);
@@ -60,11 +62,15 @@ class Reminder extends CI_Controller{
 		$data['lastname'] = $this->filter_input($lastname);
 		$data['email'] = $this->filter_input($email);
 		if(empty($data['username_err']) && empty($data['password_err']) && empty($data['repassword_err']) && empty($data['firstname_err']) && empty($data['lastname_err']) && $data['email_err']){
-			echo 'Data Accepted!';
+			// Insert data into database
 			$this->Reminder_model->insert_user($data['username'], $data['password'], $data['firstname'], $data['lastname'], $data['email']);
+
+			// Go to dashboard
+			// Login successfully / Welcome new user modal
 			$this->session->set_userdata('username', $data['username']);
-			//go to dashboard
+			$this->load->view('dashboard_proto1');
 		}
+
 		else{
 			$this->load->view('landing', $data);
 		}
@@ -92,6 +98,32 @@ class Reminder extends CI_Controller{
 				if($this->Reminder_model->get_email($string) == null)
 					return 'Email exists.';
 				break;
+
+			case 'date':
+				$date = date('Y-m-d', strtotime($string));
+				
+				if(empty($string))
+					return 'Date is required.';
+				
+				else if(date('Y-m-d') > $date) {
+					return 'Date is invalid';
+				}
+
+				break;
+
+			case 'time':
+				$date = date('Y-m-d', strtotime($string));
+				$time = date('H:i', strtotime($string));
+
+				if(empty($string))
+					return 'Time is required.';
+
+				else if(date('Y-m-d') < $date && date('H:i') < $time) {
+					return 'Time is invalid';
+				}
+
+				break;
+
 			case 'any_field':
 				if(empty($string))
 					return 'Field is required.';
@@ -108,6 +140,59 @@ class Reminder extends CI_Controller{
 		$string = trim($string);
 		$string = htmlspecialchars($string);
 		return $string;
+	}
+
+
+
+
+
+	// Dashboard Functions
+	public function send_reminder() {
+		$this->load->helper('url');
+		$this->load->library('session');
+
+		$username = $this->session->userdata('username');
+		$reminder_title = $this->input->post('reminder_title');
+		$reminder_content = $this->input->post('reminder_content');
+		$reminder_date = $this->input->post('reminder_date');
+		$reminder_time = $this->input->post('reminder_time');
+		$reminder_status = '';
+
+		$data['title'] = 'Send Reminder';
+		$data['reminder_title_err'] = $this->validate_input($reminder_title, 'any_field');
+		$data['reminder_content_err'] = $this->validate_input($reminder_content, 'any_field');
+		$data['reminder_date_err'] = $this->validate_input($reminder_date, 'date');
+		$data['reminder_time_err'] = $this->validate_input($reminder_time, 'time');
+		
+		// echo $data['reminder_title_err'] . '<br/>';
+		// echo $data['reminder_content_err'] . '<br/>';
+		// echo $data['reminder_date_err'] . '<br/>';
+		// echo $data['reminder_time_err'] . '<br/>';
+		//echo date("H:i", strtotime($reminder_time));
+
+		if(empty($data['reminder_title_err']) && empty($data['reminder_content_err']) && empty($data['reminder_date_err']) && empty($data['reminder_time_err'])) {
+			$reminder_timestamp = $this->merge_datetime($reminder_date, $reminder_time);
+			$this->Reminder_model->insert_reminder($username, $reminder_title, $reminder_content, $reminder_timestamp, $reminder_status);
+		}
+
+		else {
+			$this->load->view('dashboard_proto1', $data);
+		}
+	}
+
+	public function merge_datetime($date, $time) {
+		//$datetime = new Date($date . $time);
+		$newdate = date("Y-m-d", strtotime($date));
+		$newtime = date("H:i:s", strtotime($time));
+		$datetime = $newdate . ' ' . $newtime;
+		
+		// echo $date . '<br/>';
+		// echo $newdate . '<br/><br/>';
+		// echo $time . '<br/>';
+		// echo $newtime . '<br/><br/>';
+		// echo $datetime;
+
+		return $datetime;
 	}
 }
 ?>
