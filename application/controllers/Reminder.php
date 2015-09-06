@@ -186,6 +186,9 @@ class Reminder extends CI_Controller{
 		$this->load->helper('url');
 		$this->load->library('session');
 
+		if($this->session->userdata('username') == null)
+		then $this->load->view('landing')
+
 		$username = $this->session->userdata('username');
 		$reminder_title = $this->input->post('reminder_title');
 		$reminder_content = $this->input->post('reminder_content');
@@ -229,6 +232,13 @@ class Reminder extends CI_Controller{
 		// echo $datetime;
 
 		return $datetime;
+	}
+
+	public funtion view_reminders() {
+		$this->load->helper('url');
+		$username = $this->session->userdata('username');
+		$this->Reminder_model->get_reminders($username);
+		$this->load->view('landing', $data);
 	}
 }
 ?>
