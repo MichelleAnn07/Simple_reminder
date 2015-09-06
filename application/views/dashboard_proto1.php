@@ -29,6 +29,14 @@
   <div class="burger burger--close">
     <div class="burger__patty"></div>
   </div>
+  <div class="logout">
+    <form method="POST" action="<?php echo base_url(); ?>index.php/Reminder/log_out"> 
+      <button class="btn-flat white-text waves-effect waves-light logout-button" type="submit" name="action">Log out
+      </button>
+    </form>
+  </div>
+  <form>  
+  </form>
 </div>
 
 <div class="page">

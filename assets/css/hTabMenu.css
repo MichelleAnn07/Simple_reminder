@@ -114,7 +114,7 @@ ul {
 }
 .burger {
   position: absolute;
-  right: 0;
+  left: 0;
   top: 100%;
   width: 60px;
   height: 60px;
@@ -133,6 +133,30 @@ ul {
       -ms-flex-pack: center;
           justify-content: center;
 }
+
+/*Raymar*/
+.logout {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  /*width: 60px;*/
+  height: 60px;
+  /*background: #1a1a1a;*/
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .burger__patty {
   position: relative;
   width: 60%;
