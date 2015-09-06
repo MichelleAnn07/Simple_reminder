@@ -29,11 +29,12 @@ class Reminder extends CI_Controller{
 				$data['log_in_err'] = 'Username or Password is incorrect.';
 				$this->load->view('landing',$data);
 			}
-			else
+			else{
 				// Go to dashboard
 				// Login successfully
 				$this->session->set_userdata('username', $data['username_log']);
 				$this->load->view('dashboard_proto1');
+			}
 		}
 		else
 			$this->load->view('landing',$data);
