@@ -184,7 +184,7 @@ class Reminder extends CI_Controller{
 
 
 	// Dashboard Functions
-	public function send_reminder() {
+	public function save_reminder() {
 		$this->load->helper('url');
 		$this->load->library('session');
 
@@ -193,7 +193,6 @@ class Reminder extends CI_Controller{
 		$reminder_content = $this->input->post('reminder_content');
 		$reminder_date = $this->input->post('reminder_date');
 		$reminder_time = $this->input->post('reminder_time');
-		$reminder_status = '';
 
 		$data['title'] = 'Send Reminder';
 		$data['reminder_title_err'] = $this->validate_input($reminder_title, 'any_field');
@@ -211,6 +210,7 @@ class Reminder extends CI_Controller{
 			$reminder_timestamp = $this->merge_datetime($reminder_date, $reminder_time);
 			$this->Reminder_model->insert_reminder($username, $reminder_title, $reminder_content, $reminder_timestamp, $reminder_status);
 			$this->email_sender();
+			$this->load->view('dashboard_proto1');
 		}
 
 		else {

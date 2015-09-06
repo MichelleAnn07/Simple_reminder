@@ -35,7 +35,7 @@
   <section class="section section--active color1">
     <article class="section__wrapper">
       <div class="row">
-        <form method="POST" action="<?php echo base_url(); ?>index.php/Reminder/send_reminder/">
+        <form method="POST" action="<?php echo base_url(); ?>index.php/Reminder/save_reminder/">
           <div class="row">
             <div class="input-field reminder-fields col s12 m6 l6">
               <input <?php if(!empty($reminder_title_err)) echo 'placeholder="'.$reminder_title_err.'"'; ?> id="reminder_title" type="text" class="validate white-text <?php if(!empty($reminder_title_err)) echo 'invalid'; ?>" name="reminder_title">
