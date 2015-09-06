@@ -18,12 +18,10 @@ class Email_sender extends CI_Controller{
 			$this->email->subject('Simple Reminder: '.$row->reminder_title);
 			$this->email->message($row->reminder_note);
 			if($this->email->send()){
-				echo 'MAIL SENT!';
-				$this->Email_sender_model->set_reminder_status($row->reminder_id);
+				$this->Email_sender_model->set_reminder_status($row->reminder_id, 'SENT');
 			}
 			else{
-				echo 'Mail Not Sent! <br/>';
-				show_error($this->email->print_debugger());	
+				$this->Email_sender_model->set_reminder_status($row->reminder_id);
 			}
 		}
 		
