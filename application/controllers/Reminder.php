@@ -65,6 +65,10 @@ class Reminder extends CI_Controller{
 	public function log_in(){
 		$this->load->helper('url');
 		$this->load->library('session');
+		if($this->session->userdata('username') != null)
+			$this->load->view('dashboard_proto1');
+		else
+			$this->load->view('landing');
 		$username_log = $this->input->post('username_log');
 		$password_log = $this->input->post('password_log');
 		$data['title'] = 'Log in';
