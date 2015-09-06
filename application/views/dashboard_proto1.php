@@ -96,84 +96,54 @@
               <p class="card__full-info"></p>
             </div>
           </div>
-          <div class="card__container"><?php echo date("l").', '.date("jS").' of '.date("F");?></div>
-          <ul class="card__list">
-            <li class="card__item card__item--blue">
-              <div class="card__info">
-                <div class="info-player">
-                  <p class="info-player__num">9</p>
-                  <p class="info-player__name"><small>Tony</small><br>Romo</p>
-                </div>
-                <div class="info-place">1<sup>st</sup></div>
-              </div>
-            </li>
-            <li class="card__item card__item--purple">
-              <div class="card__info">
-                <div class="info-player">
-                  <p class="info-player__num">18</p>
-                  <p class="info-player__name"><small>Tom</small><br>Brady</p>
-                </div>
-                <div class="info-place">2<sup>nd</sup></div>
-              </div>
-            </li>
-            <li class="card__item card__item--green">
-              <div class="card__info">
-                <div class="info-player">
-                  <p class="info-player__num">12</p>
-                  <p class="info-player__name"><small>Aaron</small><br>Rogers</p>
-                </div>
-                <div class="info-place">3<sup>rd</sup></div>
-              </div>
-            </li>
-            <li class="card__item card__item--yellow">
-              <div class="card__info">
-                <div class="info-player">
-                  <p class="info-player__num">7</p>
-                  <p class="info-player__name"><small>Ben</small><br>Roethlisberger</p>
-                </div>
-                <div class="info-place">4<sup>th</sup></div>
-              </div>
-            </li>
-            <li class="card__item card__item--tan">
-              <div class="card__info">
-                <div class="info-player">
-                  <p class="info-player__num">9</p>
-                  <p class="info-player__name"><small>Drew</small><br>Brees</p>
-                </div>
-                <div class="info-place">5<sup>th</sup></div>
-              </div>
-            </li>
-            <li class="card__item card__item--orange">
-              <div class="card__info">
-                <div class="info-player">
-                  <p class="info-player__num">18</p>
-                  <p class="info-player__name"><small>Peyton</small><br>Manning</p>
-                </div>
-                <div class="info-place">6<sup>th</sup></div>
-              </div>
-            </li>
-          </ul>
-          <div class="card__container"><!--div-->Date 2</div>
-          <ul class="card__list">
-            <li class="card__item card__item--blue">
-              <div class="card__info">
-                <div class="info-player">
-                  <p class="info-player__num">11</p>
-                  <p class="info-player__name"><small>Tony</small><br>Romo</p>
-                </div>
-                <div class="info-place">1<sup>st</sup></div>
-              </div>
-            </li>
-            <li class="card__item card__item--purple">
-              <div class="card__info">
-                <div class="info-player">
-                  <p class="info-player__num">23</p>
-                  <p class="info-player__name"><small>Tom</small><br>Brady</p>
-                </div>
-                <div class="info-place">2<sup>nd</sup></div>
-              </div>
-            </li>
-          </ul>
+          
+          <?php 
+            // include_once("ond/inc/php/connect.php");
+            $this->load->database();
+
+            $username = $this->session->userdata('username');
+            
+            $where = array('username' => $username);
+            $this->db->select('reminder_title, reminder_timestamp, reminder_status');
+            $this->db->from('reminder');
+            $this->db->where($where);
+            $result = $this->db->get();
+
+            // echo '<script type="text/javascript">'
+            //    , 'jsfunction();'
+            //    , '</script>'
+            // ;
+
+            //$query = "SELECT reminder_title, reminder_note, reminder_timestamp, reminder_status FROM paginas WHERE username = 'renzoralph07'";
+            //$result = mysqli_query($query);
+
+            // while($row = mysqli_fetch_row($result)) {
+
+            foreach ($result->result() as $row) {              
+              $month = date('F', strtotime($row->reminder_timestamp));
+              $date = date('d', strtotime($row->reminder_timestamp));
+              $title = $row->reminder_title;
+
+
+              //echo '<div class="card__container">'.$month/** $row->Insert Month Here */.'</div>';
+              echo  '<ul class="card__list">';
+              if($row->reminder_status == 'SENT') {
+                echo    '<li class="card__item card__item--green">';
+              } else {
+                echo    '<li class="card__item card__item--orange">';
+              }
+              echo      '<div class="card__info">';
+              echo        '<div class="info-player">';
+              echo          '<p class="info-player__num">'.$date/** $row->Insert Date Here */.'</p>';
+              echo          '<p class="info-player__name">'.$title/** $row->Insert Reminder Title Here */.'</p>'; //<small>Tony</small><br>Romo</p>';
+              echo        '</div>';
+              echo      '</div>';
+              echo     '</li>';
+              echo   '</ul>';
+              //echo '</div>';
+            }
+          ?>
+          
         </div>
       </div>
     </article>
