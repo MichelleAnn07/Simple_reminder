@@ -25,6 +25,10 @@
       </a>
     </li>
   </ul>
+
+  <div class="burger burger--close">
+    <div class="burger__patty"></div>
+  </div>
 </div>
 
 <div class="page">

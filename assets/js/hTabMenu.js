@@ -2,12 +2,35 @@ var Nav = (function() {
   
   var
     nav     = $('.nav'),
+    burger  = $('.burger'),
     page    = $('.page'),
     section = $('.section'),
     link    = nav.find('.nav__link'),
     navH    = nav.innerHeight(),
     isOpen  = true,
     hasT    = false;
+  
+  var toggleNav = function() {
+    nav.toggleClass('nav--active');
+    burger.toggleClass('burger--close');
+    shiftPage();
+  };
+  
+  var shiftPage = function() {
+    if (!isOpen) {
+      page.css({
+        'transform': 'translateY(' + navH + 'px)',
+        '-webkit-transform': 'translateY(' + navH + 'px)'
+      });
+      isOpen = true;
+    } else {
+      page.css({
+        'transform': 'none',
+        '-webkit-transform': 'none'
+      });
+      isOpen = false;
+    }
+  };
   
   var switchPage = function(e) {
     var self = $(this);
@@ -39,6 +62,7 @@ var Nav = (function() {
   };
     
   var bindActions = function() {
+    burger.on('click', toggleNav);
     link.on('click', switchPage);
     $(document).on('ready', function() {
        page.css({
@@ -46,6 +70,7 @@ var Nav = (function() {
          '-webkit-transform': 'translateY(' + navH + 'px)'
       });
     });
+    $('body').on('keydown', keyNav);
   };
   
   var init = function() {
