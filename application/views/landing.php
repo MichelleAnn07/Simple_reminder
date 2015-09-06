@@ -56,7 +56,7 @@
          </div>
       </div>
    </div>
-   <div id="login-signup">
+   <div id="login-signup" <?php if(!empty($username_err) || !empty($password_err) || !empty($repassword_err) || !empty($firstname_err) || !empty($lastname_err) || !empty($email_err)) echo 'class="move-left"' ?> >
       <div class="toplam">
          <div class="sign-up">
             <div class="sign-up-center valign center-align">
@@ -111,14 +111,14 @@
                <h4 class="white-text">Login</h4>
                <div class="login-fields">
                   <?php
-                     echo $log_in_err;
+                     if(isset($log_in_err)) echo $log_in_err;
                   ?>
                </div>
                <br />
                <form method="POST" action="<?php echo base_url(); ?>index.php/Reminder/log_in/">
                  <div class="row">
                     <div class="input-field login-fields">
-                       <input <?php if(!empty($username_log_err)) echo 'placeholder="'.$username_log_err.'"'; ?> id="username-log" type="text" class="validate white-text <?php if(!empty($username_log_err)) echo 'invalid'; ?>" name="username_log">
+                       <input <?php if(!empty($username_log_err)) echo 'placeholder="'.$username_log_err.'"'; ?> <?php if(!empty($username_log)) echo 'value="'.$username_log.'"'; ?> id="username-log" type="text" class="validate white-text <?php if(!empty($username_log_err)) echo 'invalid'; ?>" name="username_log">
                        <label for="username-log">Username</label>
                     </div>
                  </div>
