@@ -208,7 +208,7 @@ class Reminder extends CI_Controller{
 
 		if(empty($data['reminder_title_err']) && empty($data['reminder_content_err']) && empty($data['reminder_date_err']) && empty($data['reminder_time_err'])) {
 			$reminder_timestamp = $this->merge_datetime($reminder_date, $reminder_time);
-			$this->Reminder_model->insert_reminder($username, $reminder_title, $reminder_content, $reminder_timestamp, $reminder_status);
+			$this->Reminder_model->insert_reminder($username, $reminder_title, $reminder_content, $reminder_timestamp, null);
 			$this->email_sender();
 			$this->load->view('dashboard_proto1');
 		}
