@@ -53,6 +53,11 @@ class Reminder extends CI_Controller{
 		}
 	}
 	
+	
+	public function log_out(){
+		
+		
+	}
 	public function log_in(){
 		$this->load->helper('url');
 		$this->load->library('session');
@@ -236,7 +241,7 @@ class Reminder extends CI_Controller{
 		return $datetime;
 	}
 
-	public funtion view_reminders() {
+	public function view_reminders() {
 		$this->load->helper('url');
 		$username = $this->session->userdata('username');
 		$this->Reminder_model->get_reminders($username);
