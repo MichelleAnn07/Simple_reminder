@@ -47,20 +47,16 @@ var Cards = (function() {
 	];
 	
 	var moveCard = function() {
+		closeCard();
 		var self = $(this);
 		var selfIndex = self.index();
 		var selfO = self.offset();
-		var ty = w.innerHeight()/2 - selfO.top -4;
 		
 		var color = self.css('border-top-color');
 		cardfulltop.css('background-color', color);
 		cardhandle.css('color', color);
 		
 		updateData(selfIndex);
-		
-		self.css({
-			'transform': 'translateY(' + ty + 'px)'
-		});
 				
 		self.on('transitionend', function() {
 			cardfull.addClass('active');
@@ -76,7 +72,6 @@ var Cards = (function() {
 		cardinfo.hide();
 		cardhandle.hide();
 		cardfull.on('transitionend', function() {
-			card.removeAttr('style');
 			cardnum.show();
 			cardinfo.show();
 			cardhandle.show();
@@ -106,3 +101,14 @@ var Cards = (function() {
 }());
 
 Cards.init();
+
+// $(document).mouseup(function (e)
+// {
+//     var container = $("YOUR CONTAINER SELECTOR");
+
+//     if (!container.is(e.target) // if the target of the click isn't the container...
+//         && container.has(e.target).length === 0) // ... nor a descendant of the container
+//     {
+//         container.hide();
+//     }
+// });
