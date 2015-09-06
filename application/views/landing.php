@@ -30,7 +30,7 @@
         </li>
       </ul>
     </nav> -->
-   <div class="dual"> <!--menu-->
+   <div class="dual <?php if(!empty($username_err) || !empty($password_err) || !empty($repassword_err) || !empty($firstname_err) || !empty($lastname_err) || !empty($email_err)) echo 'mobile-left' ?> "> <!--menu-->
       <div class="left"> <!--menu__brand-->
          <div class="left-text flow-text hide-on-med-and-down">
             <h1 class="left-align white-text">A Simple Reminder System</h1>
