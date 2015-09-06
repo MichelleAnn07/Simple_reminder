@@ -5,7 +5,7 @@
   <link href="<?php echo base_url();?>assets/css/hTabMenu.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="<?php echo base_url();?>assets/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="<?php echo base_url();?>assets/css/lolliclock.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="<?php echo base_url();?>assets/css/views.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="<?php echo base_url();?>assets/css/material-design-cards.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="<?php echo base_url();?>assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
@@ -156,5 +156,5 @@
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/lolliclock.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/script.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>assets/js/views.js"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>assets/js/material-design-cards.js"></script>
 </html>

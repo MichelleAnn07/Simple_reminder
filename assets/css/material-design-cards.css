@@ -8,27 +8,6 @@ ul {
   list-style-type: none;
 }
 
-/*body {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 100vh;
-  line-height: 1.5;
-  font-family: 'Roboto';
-  background: #f2f2f2;
-  color: #404040;
-  overflow: hidden;
-}*/
-
 .view {
   position: relative;
   height: 640px;
@@ -61,7 +40,8 @@ ul {
   padding: 0.75rem;
 }
 .card__item {
-  margin: 0 0 0.75rem;
+  float: left;
+  margin: 0.5rem;
   padding: 2.25rem 1.5rem;
   border-top: 4px solid #404040;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
