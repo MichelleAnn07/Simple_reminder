@@ -33,32 +33,30 @@
       <div class="row">
         <form method="POST" action="<?php echo base_url(); ?>index.php/Reminder/send_reminder/">
           <div class="row">
-            <div class="input-field reminder-fields col s6">
+            <div class="input-field reminder-fields col s12 m6 l6">
               <input <?php if(!empty($reminder_title_err)) echo 'placeholder="'.$reminder_title_err.'"'; ?> id="reminder_title" type="text" class="validate white-text <?php if(!empty($reminder_title_err)) echo 'invalid'; ?>" name="reminder_title">
               <label for="reminder_title">Reminder Title</label>
             </div>
           </div>
 
           <div class="row">
-            <div class="input-field reminder-fields col s12">
+            <div class="input-field reminder-fields col s12 m12 l12">
               <textarea <?php if(!empty($reminder_content_err)) echo 'placeholder="'.$reminder_content_err.'"'; ?> id="reminder_content" class="validate reminder-textarea materialize-textarea white-text <?php if(!empty($reminder_content_err)) echo 'invalid'; ?>" name="reminder_content"></textarea>
               <label for="reminder_note">Reminder Content</label>
             </div>
           </div>
 
             <div class="row">
-              <div class = "input-field reminder-fields col s4">
+              <div class = "input-field reminder-fields col s12 m5 l5">
                 <input <?php if(!empty($reminder_date_err)) echo 'placeholder="'.$reminder_date_err.'"'; ?> id="reminder_date" type="date" class="validate datepicker white-text <?php if(!empty($reminder_date_err)) echo 'invalid'; ?>" name="reminder_date">
-              <label for="reminder_date">Reminder Date</label>
+                <label for="reminder_date">Reminder Date</label>
+              </div>
+
+              <div class="input-field reminder-fields col s12 offset-m2 m5 offset-l2 l5">
+                <input <?php if(!empty($reminder_time_err)) echo 'placeholder="'.$reminder_time_err.'"'; ?> id="reminder_time" type="text" class="validate lolliclock white-text <?php if(!empty($reminder_time_err)) echo 'invalid'; ?>" name="reminder_time">
+                <label for="reminder_time">Reminder Time</label>
               </div>
             </div>
-
-            <div class="row">
-          <div class="input-field reminder-fields col s4">
-            <input <?php if(!empty($reminder_time_err)) echo 'placeholder="'.$reminder_time_err.'"'; ?> id="reminder_time" type="text" class="validate lolliclock white-text <?php if(!empty($reminder_time_err)) echo 'invalid'; ?>" name="reminder_time">
-            <label for="reminder_time">Reminder Time</label>
-          </div>
-        </div>
 
             <div class="row">
               <button class="reminder-button btn waves-effect waves-light" type="submit" name="action">Set this Reminder

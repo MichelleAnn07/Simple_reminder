@@ -24,8 +24,8 @@ ul {
 .nav {
   will-change: transform;
   position: fixed;
-  top: 0;
-  left: 0;
+  /*top: 0;*/
+  /*left: 0;*/
   width: 100%;
   z-index: 1;
   background: #1a1a1a;
@@ -190,7 +190,7 @@ ul {
   top: 0;
   left: 0;
   height: 100vh;
-  overflow: hidden;
+  overflow: visible;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

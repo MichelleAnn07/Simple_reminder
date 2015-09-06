@@ -47,7 +47,6 @@ var Cards = (function() {
 	];
 	
 	var moveCard = function() {
-		closeCard();
 		var self = $(this);
 		var selfIndex = self.index();
 		var selfO = self.offset();
