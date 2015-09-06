@@ -5,6 +5,7 @@
   <link href="<?php echo base_url();?>assets/css/hTabMenu.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="<?php echo base_url();?>assets/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="<?php echo base_url();?>assets/css/lolliclock.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="<?php echo base_url();?>assets/css/views.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="<?php echo base_url();?>assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
@@ -70,8 +71,81 @@
   </section>
   <section class="section color2" data-letter="v">
     <article class="section__wrapper">
-      <h1 class="section__title">View</h1>
-      <p>View Page Here<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <div class="view">
+        <div class="card__full">
+          <div class="card__full-top">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M16.59 8.59l-4.59 4.58-4.59-4.58-1.41 1.41 6 6 6-6z"/>
+                <path d="M0 0h24v24h-24z" fill="none"/>
+            </svg>
+            <span class="card__full-num"></span>
+          </div>
+          <div class="card__full-bottom">
+            <p class="card__full-handle"></p>
+            <p class="card__full-info"></p>
+          </div>
+        </div>
+        <ul class="card__list">
+          <li class="card__item card__item--blue">
+            <div class="card__info">
+              <div class="info-player">
+                <p class="info-player__num">9</p>
+                <p class="info-player__name"><small>Tony</small><br>Romo</p>
+              </div>
+              <div class="info-place">1<sup>st</sup></div>
+            </div>
+          </li>
+          <li class="card__item card__item--purple">
+            <div class="card__info">
+              <div class="info-player">
+                <p class="info-player__num">18</p>
+                <p class="info-player__name"><small>Tom</small><br>Brady</p>
+              </div>
+              <div class="info-place">2<sup>nd</sup></div>
+            </div>
+          </li>
+          <li class="card__item card__item--green">
+            <div class="card__info">
+              <div class="info-player">
+                <p class="info-player__num">12</p>
+                <p class="info-player__name"><small>Aaron</small><br>Rogers</p>
+              </div>
+              <div class="info-place">3<sup>rd</sup></div>
+            </div>
+          </li>
+          <li class="card__item card__item--yellow">
+            <div class="card__info">
+              <div class="info-player">
+                <p class="info-player__num">7</p>
+                <p class="info-player__name"><small>Ben</small><br>Roethlisberger</p>
+              </div>
+              <div class="info-place">4<sup>th</sup></div>
+            </div>
+          </li>
+          <li class="card__item card__item--tan">
+            <div class="card__info">
+              <div class="info-player">
+                <p class="info-player__num">9</p>
+                <p class="info-player__name"><small>Drew</small><br>Brees</p>
+              </div>
+              <div class="info-place">5<sup>th</sup></div>
+            </div>
+          </li>
+          <li class="card__item card__item--orange">
+            <div class="card__info">
+              <div class="info-player">
+                <p class="info-player__num">18</p>
+                <p class="info-player__name"><small>Peyton</small><br>Manning</p>
+              </div>
+              <div class="info-place">6<sup>th</sup></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <a href="http://ettrics.com/code/mobile-material-design-cards/" class="logo" target="_blank">
+       <img class="logo" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/45226/ettrics-logo.svg" alt="" /> 
+      </a>
     </article>
   </section>
 </div>
@@ -82,4 +156,5 @@
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/lolliclock.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/script.js"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>assets/js/views.js"></script>
 </html>
