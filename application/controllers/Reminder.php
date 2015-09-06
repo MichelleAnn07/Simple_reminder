@@ -70,7 +70,6 @@ class Reminder extends CI_Controller{
 			else{
 				$this->session->set_userdata('username', $data['username_log']);
 				$this->load->view('dashboard_proto1');
-				$this->email_sender();
 			}
 		}
 		else
@@ -103,7 +102,6 @@ class Reminder extends CI_Controller{
 			$this->Reminder_model->insert_user($data['username'], $data['password'], $data['firstname'], $data['lastname'], $data['email']);
 			$this->session->set_userdata('username', $data['username']);
 			$this->load->view('dashboard_proto1');
-			$this->email_sender();
 		}
 
 		else{
