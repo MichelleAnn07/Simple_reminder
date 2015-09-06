@@ -40,12 +40,12 @@ var Nav = (function() {
     
   var bindActions = function() {
     link.on('click', switchPage);
-    // $(document).on('ready', function() {
-    //    page.css({
-    //     'transform': 'translateY(' + navH + 'px)',
-    //      '-webkit-transform': 'translateY(' + navH + 'px)'
-    //   });
-    // });
+    $(document).on('ready', function() {
+       page.css({
+        'transform': 'translateY(' + navH + 'px)',
+         '-webkit-transform': 'translateY(' + navH + 'px)'
+      });
+    });
   };
   
   var init = function() {
