@@ -8,6 +8,7 @@ class Reminder extends CI_Controller{
 	
 	public function index(){
 		$this->load->helper('url');
+		$this->load->library('session');
 		if($this->session->userdata('username') != null)
 			$this->load->view('dashboard_proto1');
 		$data['title'] = 'Log in';
@@ -52,12 +53,12 @@ class Reminder extends CI_Controller{
 			}
 		}
 	}
-	
-	
+		
 	public function log_out(){
-		
-		
+		$this->session->unset_userdata('username');
+		$this->load->view('landing');
 	}
+	
 	public function log_in(){
 		$this->load->helper('url');
 		$this->load->library('session');
