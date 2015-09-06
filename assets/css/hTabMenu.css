@@ -236,7 +236,7 @@ ul {
 }
 .section__wrapper {
   width: 100%;
-  max-width: 80vw;
+  max-width: 800px;
   padding: 0 8vw;
 }
 .section__title {
