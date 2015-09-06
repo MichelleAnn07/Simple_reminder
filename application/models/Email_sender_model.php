@@ -15,9 +15,9 @@ class Email_sender_model extends CI_Model{
 		return $query->result();
 	}
 	
-	public function set_reminder_status($reminder_id = null){
+	public function set_reminder_status($reminder_id = null, $reminder_status = null){
+		$update = array('reminder_status' => $reminder_status);
 		$where = array('reminder_id' => $reminder_id);
-		$update = array('reminder_status' => 'SENT');
 		$this->db->where($where);
 		$this->db->update('reminder',$update);
 	}

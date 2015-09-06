@@ -3,6 +3,7 @@ class Reminder extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Reminder_model');
+		$this->load->model('Email_sender_model');	
 	}
 	
 	public function index(){
@@ -11,6 +12,43 @@ class Reminder extends CI_Controller{
 		$data['username_log_err'] = $data['password_log_err'] = $data['username_log'] = $data['password_log'] = $data['log_in_err'] = '';
 		$data['reminder_title_err'] = $data['reminder_content_err'] = $data['reminder_date_err'] = $data['reminder_time_err'] = '';
 		$this->load->view('landing', $data);
+	}
+	
+	// Functions for sending of Email
+	private function email_config(){
+		return array(
+			'protocol' => 'smtp',
+			'smtp_host' => 'ssl://smtp.googlemail.com',
+			'smtp_port' => 465,
+			'smtp_timeout' => '7',
+			'smtp_user' => 'nmssimplereminder@gmail.com',
+			'smtp_pass' => 'noticemesenpai',
+			'mailtype' => 'html',
+			'charset' => 'iso-8859-1',
+			'wordwrap' => TRUE,
+			'newline' => "\r\n",
+			'validation' => TRUE,
+		);
+	}
+	
+	public function email_sender(){
+		$config = $this->email_config();
+		$this->load->library('email', $config);
+
+		$curr_date = date('Y-m-d H:i:s');
+		$result = $this->Email_sender_model->get_reminder($curr_date);
+		foreach($result as $row){
+			$this->email->from('ffxgamer07@gmail.com', 'Simple Reminder');
+			$this->email->to($row->email);
+			$this->email->subject('Simple Reminder: '.$row->reminder_title);
+			$this->email->message($row->reminder_note);
+			if($this->email->send()){
+				$this->Email_sender_model->set_reminder_status($row->reminder_id, 'SENT');
+			}
+			else{
+				$this->Email_sender_model->set_reminder_status($row->reminder_id);
+			}
+		}
 	}
 	
 	public function log_in(){
@@ -30,10 +68,9 @@ class Reminder extends CI_Controller{
 				$this->load->view('landing',$data);
 			}
 			else{
-				// Go to dashboard
-				// Login successfully
 				$this->session->set_userdata('username', $data['username_log']);
 				$this->load->view('dashboard_proto1');
+				$this->email_sender();
 			}
 		}
 		else
@@ -63,13 +100,10 @@ class Reminder extends CI_Controller{
 		$data['lastname'] = $this->filter_input($lastname);
 		$data['email'] = $this->filter_input($email);
 		if(empty($data['username_err']) && empty($data['password_err']) && empty($data['repassword_err']) && empty($data['firstname_err']) && empty($data['lastname_err']) && $data['email_err']){
-			// Insert data into database
 			$this->Reminder_model->insert_user($data['username'], $data['password'], $data['firstname'], $data['lastname'], $data['email']);
-
-			// Go to dashboard
-			// Login successfully / Welcome new user modal
 			$this->session->set_userdata('username', $data['username']);
 			$this->load->view('dashboard_proto1');
+			$this->email_sender();
 		}
 
 		else{
@@ -82,21 +116,21 @@ class Reminder extends CI_Controller{
 			case 'username':
 				if(empty($string))
 					return 'Field is required.';
-				if($this->Reminder_model->get_username($string) == null)
+				else if($this->Reminder_model->get_username($string) == null)
 					return 'Username exists.';
 				break;
 			case 'name': 
 				if(empty($string))
 					return 'Field is required.';
-				if(!preg_match("/^[a-z ,.'-]+$/i", $string))
+				else if(!preg_match("/^[a-z ,.'-]+$/i", $string))
 					return 'Name is invalid.';
 				break;
 			case 'email':
 				if(empty($string))
 					return 'Field is required.';
-				if(!filter_var($string, FILTER_VALIDATE_EMAIL))
+				else if(!filter_var($string, FILTER_VALIDATE_EMAIL))
 					return 'Email is invalid.';
-				if($this->Reminder_model->get_email($string) == null)
+				else if($this->Reminder_model->get_email($string) == null)
 					return 'Email exists.';
 				break;
 
@@ -133,7 +167,9 @@ class Reminder extends CI_Controller{
 	}
 	
 	public function confirm_password($password, $repassword){
-		if(strcmp($password, $repassword) !== 0)
+		if(empty($repassword))
+			return 'Field is required.';
+		else if(strcmp($password, $repassword) !== 0)
 			return 'Password does not match.';
 	}
 	
@@ -174,6 +210,7 @@ class Reminder extends CI_Controller{
 		if(empty($data['reminder_title_err']) && empty($data['reminder_content_err']) && empty($data['reminder_date_err']) && empty($data['reminder_time_err'])) {
 			$reminder_timestamp = $this->merge_datetime($reminder_date, $reminder_time);
 			$this->Reminder_model->insert_reminder($username, $reminder_title, $reminder_content, $reminder_timestamp, $reminder_status);
+			$this->email_sender();
 		}
 
 		else {
