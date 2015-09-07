@@ -19,15 +19,23 @@ var Nav = (function() {
   var shiftPage = function() {
     if (!isOpen) {
       page.css({
+        'height' : '85vh',
         'transform': 'translateY(' + navH + 'px)',
         '-webkit-transform': 'translateY(' + navH + 'px)'
       });
+      section.css({
+        'height': '85vh'
+      })
       isOpen = true;
     } else {
       page.css({
+        'height' : '100vh',
         'transform': 'none',
         '-webkit-transform': 'none'
       });
+      section.css({
+        'height' : '100vh'
+      })
       isOpen = false;
     }
   };

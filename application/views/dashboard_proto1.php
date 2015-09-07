@@ -96,7 +96,8 @@
               <p class="card__full-info"></p>
             </div>
           </div>
-          
+
+          <ul class="card__list">          
           <?php 
             // include_once("ond/inc/php/connect.php");
             $this->load->database();
@@ -120,13 +121,13 @@
             // while($row = mysqli_fetch_row($result)) {
 
             foreach ($result->result() as $row) {              
-              $month = date('F', strtotime($row->reminder_timestamp));
+              $month = date('F d, Y', strtotime($row->reminder_timestamp));
               $date = date('d', strtotime($row->reminder_timestamp));
               $title = $row->reminder_title;
 
 
               //echo '<div class="card__container">'.$month/** $row->Insert Month Here */.'</div>';
-              echo  '<ul class="card__list">';
+              // echo  '<ul class="card__list">';
               if($row->reminder_status == 'SENT') {
                 echo    '<li class="card__item card__item--green">';
               } else {
@@ -134,16 +135,17 @@
               }
               echo      '<div class="card__info">';
               echo        '<div class="info-player">';
-              echo          '<p class="info-player__num">'.$date/** $row->Insert Date Here */.'</p>';
-              echo          '<p class="info-player__name">'.$title/** $row->Insert Reminder Title Here */.'</p>'; //<small>Tony</small><br>Romo</p>';
+              echo          '<p class="info-player__num">'/** $row->Insert Date Here */.'</p>';
+              echo          '<p class="info-player__name"><small>'. $month .'</small></br>'.$title/** $row->Insert Reminder Title Here */.'</p>';
               echo        '</div>';
               echo      '</div>';
               echo     '</li>';
-              echo   '</ul>';
+              // echo   '</ul>';
               //echo '</div>';
             }
           ?>
-          
+
+          </ul>
         </div>
       </div>
     </article>
@@ -156,5 +158,10 @@
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/lolliclock.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/script.js"></script>
+    
+    <script type="text/javascript">
+    //   reminders = 
+    </script>
+    
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/materialDesignCard.js"></script>
 </html>

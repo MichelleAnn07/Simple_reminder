@@ -15,34 +15,34 @@ var Cards = (function() {
 	
 	var data = [
 		{
-			num: 9,
-			handle: '@tonyromo',
-			info: 'This is some info about the player and sports.'
+			num: '!!!',
+			handle: 'Warning',
+			info: 'This is page is currently under intensive development.'
 		},
 		{
-			num: 18,
-			handle: '@tombrady',
-			info: 'This is some info about the player and sports.'
+			num: '!!!',
+			handle: 'Warning',
+			info: 'This is page is currently under intensive development.'
 		},
 		{
-			num: 12,
-			handle: '@aaronrogers',
-			info: 'This is some info about the player and sports.'
+			num: '!!!',
+			handle: 'Warning',
+			info: 'This is page is currently under intensive development.'
 		},
 		{
-			num: 7,
-			handle: '@benroethlisberger',
-			info: 'This is some info about the player and sports.'
+			num: '!!!',
+			handle: 'Warning',
+			info: 'This is page is currently under intensive development.'
 		},
 		{
-			num: 9,
-			handle: '@drewbrees',
-			info: 'This is some info about the player and sports.'
+			num: '!!!',
+			handle: 'Warning',
+			info: 'This is page is currently under intensive development.'
 		},
 		{
-			num: 18,
-			handle: '@peytonmanning',
-			info: 'This is some info about the player and sports.'
+			num: '!!!',
+			handle: 'Warning',
+			info: 'This is page is currently under intensive development.'
 		}
 	];
 	
