@@ -48,7 +48,7 @@
                <form method="post" action="<?php echo base_url(); ?>index.php/Reminder/sign_up">
                   <div class="row">
                      <div class="input-field signup-fields">
-                        <input <?php if(!empty($username_err)) echo 'placeholder="'.$username_err.'"'; ?> id="username" type="text" class="validate white-text <?php if(!empty($username_err)) echo 'invalid'; ?>" name="username">
+                        <input <?php if(!empty($username_err)) echo 'placeholder="'.$username_err.'"'; ?> <?php if(!empty($username) && empty($username_err)) echo 'value="'.$username.'"'; ?> id="username" type="text" class="validate white-text <?php if(!empty($username_err)) echo 'invalid'; ?>" name="username">
                         <label for="username">Username</label>
                      </div>
                   </div>
@@ -66,19 +66,19 @@
                   </div>
                   <div class="row">
                      <div class="input-field signup-fields">
-                        <input <?php if(!empty($firstname_err)) echo 'placeholder="'.$firstname_err.'"'; ?> id="firstname" type="text" class="validate white-text <?php if(!empty($firstname_err)) echo 'invalid'; ?>" name="firstname">
+                        <input <?php if(!empty($firstname_err)) echo 'placeholder="'.$firstname_err.'"'; ?> <?php if(!empty($firstname) && empty($firstname_err)) echo 'value="'.$firstname.'"'; ?> id="firstname" type="text" class="validate white-text <?php if(!empty($firstname_err)) echo 'invalid'; ?>" name="firstname">
                         <label for="firstname">First Name</label>
                      </div>
                   </div>
                   <div class="row">
                      <div class="input-field signup-fields">
-                        <input <?php if(!empty($lastname_err)) echo 'placeholder="'.$lastname_err.'"'; ?> id="lastname" type="text" class="validate white-text <?php if(!empty($lastname_err)) echo 'invalid'; ?>" name="lastname">
+                        <input <?php if(!empty($lastname_err)) echo 'placeholder="'.$lastname_err.'"'; ?> <?php if(!empty($lastname) && empty($lastname_err)) echo 'value="'.$lastname.'"'; ?> id="lastname" type="text" class="validate white-text <?php if(!empty($lastname_err)) echo 'invalid'; ?>" name="lastname">
                         <label for="lastname">Last Name</label>
                      </div>
                   </div>
                   <div class="row">
                      <div class="input-field signup-fields">
-                        <input <?php if(!empty($email_err)) echo 'placeholder="'.$email_err.'"'; ?> id="email" type="email" class="validate white-text <?php if(!empty($email_err)) echo 'invalid'; ?>" name="email">
+                        <input <?php if(!empty($email_err)) echo 'placeholder="'.$email_err.'"'; ?> <?php if(!empty($email) && empty($email_err)) echo 'value="'.$email.'"'; ?> id="email" type="email" class="validate white-text <?php if(!empty($email_err)) echo 'invalid'; ?>" name="email">
                         <label for="email">E-Mail</label>
                      </div>
                   </div>
