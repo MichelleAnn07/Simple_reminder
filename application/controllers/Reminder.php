@@ -116,10 +116,13 @@ class Reminder extends CI_Controller{
 			$data['firstname'] = $this->filter_input($firstname);
 			$data['lastname'] = $this->filter_input($lastname);
 			$data['email'] = $this->filter_input($email);
-			if(empty($data['username_err']) && empty($data['password_err']) && empty($data['repassword_err']) && empty($data['firstname_err']) && empty($data['lastname_err']) && $data['email_err']){
+			$data['success'] = false;
+			if(empty($data['username_err']) && empty($data['password_err']) && empty($data['repassword_err']) && empty($data['firstname_err']) && empty($data['lastname_err']) && empty($data['email_err'])){
 				$this->Reminder_model->insert_user($data['username'], $data['password'], $data['firstname'], $data['lastname'], $data['email']);
-				$this->session->set_userdata('username', $data['username']);
-				$this->load->view('dashboard_proto1');
+				// $this->session->set_userdata('username', $data['username']);
+				// $this->load->view('dashboard_proto1');
+				$data['success'] = true;
+				$this->load->view('landing', $data);
 			}
 
 			else{
@@ -147,7 +150,7 @@ class Reminder extends CI_Controller{
 					return 'Field is required.';
 				else if(!filter_var($string, FILTER_VALIDATE_EMAIL))
 					return 'Email is invalid.';
-				else if($this->Reminder_model->get_email($string) == null)
+				else if($this->Reminder_model->get_email($string) != null)
 					return 'Email exists.';
 				break;
 

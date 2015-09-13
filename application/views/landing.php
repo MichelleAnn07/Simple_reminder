@@ -14,22 +14,6 @@
 	</head>
 
   <body>
-    <!-- <nav class="menu">
-      <div class="menu__brand">
-        <a href=""><div class="logo"></div></a>
-      </div>
-      <ul class="menu__list">
-        <li class="menu__item"><a href="" class="menu__link">Work</a></li>
-        <li class="menu__item"><a href="" class="menu__link">About</a></li>
-        <li class="menu__item">
-          <a href="https://twitter.com/ettrics" target="_blank" class="menu__link menu__link--social"><i class="fa fa-twitter"></i></a>
-        </li>
-        <li class="menu__item">
-          <a href="https://dribbble.com/ettrics" target="_blank" class="menu__link menu__link--social">
-            <i class="fa fa-dribbble"></i></a>
-        </li>
-      </ul>
-    </nav> -->
    <div class="dual <?php if(!empty($username_err) || !empty($password_err) || !empty($repassword_err) || !empty($firstname_err) || !empty($lastname_err) || !empty($email_err)) echo 'mobile-left' ?> "> <!--menu-->
       <div class="left"> <!--menu__brand-->
          <div class="left-text flow-text hide-on-med-and-down">
@@ -141,11 +125,29 @@
       </div>
    </div>
 
+   <!-- Modal Structure -->
+  <div id="success" class="modal">
+    <div class="modal-content">
+      <h4>Sucess!</h4>
+      <p>You can now login with the account you registered</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Got it</a>
+    </div>
+  </div>
+
     <!-- Javascript  -->
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/dual-sliding-panel.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/script.js"></script>
+
+    <script type="text/javascript">
+      $( document ).ready(function() {
+        <?php if($success) echo "$('#success').openModal();"; ?>
+      });
+    </script>
+
   </body>
 
 </html>
