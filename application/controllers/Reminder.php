@@ -104,7 +104,7 @@ class Reminder extends CI_Controller{
 			$lastname = $this->input->post('lastname');
 			$email = $this->input->post('email');
 			$data['title'] = 'Sign up';
-			$data['username_err'] = $this->validate_input($username, 'any_field');
+			$data['username_err'] = $this->validate_input($username, 'username');
 			$data['password_err'] = $this->validate_input($password, 'any_field');
 			$data['repassword_err'] = $this->confirm_password($password, $repassword);
 			$data['firstname_err'] = $this->validate_input($firstname,'name');
