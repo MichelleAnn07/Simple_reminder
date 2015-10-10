@@ -22,7 +22,7 @@ class Reminder_model extends CI_Model{
 		$this->db->where($where);
 		$query = $this->db->get();
 		if($query->num_rows() > 0){
-			return $query->result_array;
+			return $query->result_array();
 		}
 	}
 	
@@ -33,7 +33,7 @@ class Reminder_model extends CI_Model{
 		$this->db->where($where);
 		$query = $this->db->get();
 		if($query->num_rows() > 0){
-			return $query->result_array;
+			return $query->result_array();
 		}
 	}
 	

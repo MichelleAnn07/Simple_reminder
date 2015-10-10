@@ -150,8 +150,9 @@ class Reminder extends CI_Controller{
 					return 'Field is required.';
 				else if(!filter_var($string, FILTER_VALIDATE_EMAIL))
 					return 'Email is invalid.';
-				else if($this->Reminder_model->get_email($string) == null)
+				else if($this->Reminder_model->get_email($string) == null) {
 					return 'Email exists.';
+				}
 				break;
 
 			case 'date':
