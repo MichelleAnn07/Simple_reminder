@@ -13,39 +13,6 @@ var Cards = (function() {
 	var cardinfo = cardfull.find('.card__full-info');
 	var w 		= $(window);
 	
-	var data = [
-		{
-			num: '!!!',
-			handle: 'Warning',
-			info: 'This is page is currently under intensive development.'
-		},
-		{
-			num: '!!!',
-			handle: 'Warning',
-			info: 'This is page is currently under intensive development.'
-		},
-		{
-			num: '!!!',
-			handle: 'Warning',
-			info: 'This is page is currently under intensive development.'
-		},
-		{
-			num: '!!!',
-			handle: 'Warning',
-			info: 'This is page is currently under intensive development.'
-		},
-		{
-			num: '!!!',
-			handle: 'Warning',
-			info: 'This is page is currently under intensive development.'
-		},
-		{
-			num: '!!!',
-			handle: 'Warning',
-			info: 'This is page is currently under intensive development.'
-		}
-	];
-	
 	var moveCard = function() {
 		var self = $(this);
 		var selfIndex = self.index();

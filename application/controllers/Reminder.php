@@ -233,6 +233,7 @@ class Reminder extends CI_Controller{
 			$reminder_timestamp = $this->merge_datetime($reminder_date, $reminder_time);
 			$this->Reminder_model->insert_reminder($username, $reminder_title, $reminder_content, $reminder_timestamp, null);
 			$this->email_sender();
+			echo "<script type='text/javascript'>alert('Reminder has been saved.')</script>";
 			$this->load->view('dashboard_proto1');
 		}
 

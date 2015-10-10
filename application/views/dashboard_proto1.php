@@ -7,7 +7,29 @@
   <link href="<?php echo base_url();?>assets/css/lolliclock.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="<?php echo base_url();?>assets/css/materialDesignCard.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="<?php echo base_url();?>assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <?php
+    $this->load->database();
+
+    $username = $this->session->userdata('username');
+
+    $where = array('username' => $username);
+    $this->db->select('reminder_title, reminder_timestamp, reminder_status, reminder_note');
+    $this->db->from('reminder');
+    $this->db->where($where);
+    $result = $this->db->get();
+    $dataCtr = 0;
+    foreach ($result->result() as $row) {              
+      $month = date('F d, Y', strtotime($row->reminder_timestamp));
+      $date = date('d', strtotime($row->reminder_timestamp));
+      $title = $row->reminder_title;
+      $content = $row->reminder_note;
+      $myvar[$dataCtr] = array("num"=>$date, "handle"=>$title, "info"=>$content);
+      $dataCtr++;
+    }
+    echo "<script type='text/javascript'>var data = ".json_encode($myvar).";</script>";
+  ?>
 </head>
+
 <body>
 
 <div class="nav nav--active">
@@ -105,7 +127,7 @@
             $username = $this->session->userdata('username');
             
             $where = array('username' => $username);
-            $this->db->select('reminder_title, reminder_timestamp, reminder_status');
+            $this->db->select('reminder_title, reminder_timestamp, reminder_status, reminder_note');
             $this->db->from('reminder');
             $this->db->where($where);
             $result = $this->db->get();
@@ -119,12 +141,12 @@
             //$result = mysqli_query($query);
 
             // while($row = mysqli_fetch_row($result)) {
-
+            // $dataCtr = 0;
             foreach ($result->result() as $row) {              
               $month = date('F d, Y', strtotime($row->reminder_timestamp));
               $date = date('d', strtotime($row->reminder_timestamp));
               $title = $row->reminder_title;
-
+              $content = $row->reminder_note;
 
               //echo '<div class="card__container">'.$month/** $row->Insert Month Here */.'</div>';
               // echo  '<ul class="card__list">';
@@ -140,9 +162,13 @@
               echo        '</div>';
               echo      '</div>';
               echo     '</li>';
+              
+              // $myvar[$dataCtr] = array("num"=>$date, "handle"=>$title, "info"=>$content);
+              // $dataCtr++;
               // echo   '</ul>';
               //echo '</div>';
             }
+            // echo "<script type='text/javascript'>var data = ".json_encode($myvar).";</script>";
           ?>
 
           </ul>
