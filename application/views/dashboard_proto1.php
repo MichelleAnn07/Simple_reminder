@@ -17,16 +17,22 @@
     $this->db->from('reminder');
     $this->db->where($where);
     $result = $this->db->get();
-    $dataCtr = 0;
-    foreach ($result->result() as $row) {              
-      $month = date('F d, Y', strtotime($row->reminder_timestamp));
-      $date = date('d', strtotime($row->reminder_timestamp));
-      $title = $row->reminder_title;
-      $content = $row->reminder_note;
-      $myvar[$dataCtr] = array("num"=>$date, "handle"=>$title, "info"=>$content);
-      $dataCtr++;
+
+    if($result->num_rows() != 0) {
+      $dataCtr = 0;
+      
+      foreach ($result->result() as $row) {              
+        $month = date('F d, Y', strtotime($row->reminder_timestamp));
+        $date = date('d', strtotime($row->reminder_timestamp));
+        $title = $row->reminder_title;
+        $content = $row->reminder_note;
+        $myvar[$dataCtr] = array("num"=>$date, "handle"=>$title, "info"=>$content);
+        $dataCtr++;
+      }
+
+      echo "im here";
+      echo "<script type='text/javascript'>var data = ".json_encode($myvar).";</script>";
     }
-    echo "<script type='text/javascript'>var data = ".json_encode($myvar).";</script>";
   ?>
 </head>
 
